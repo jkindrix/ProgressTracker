@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace ProgressTracker.Common
+namespace ProgressTracker.Common.Extensions
 {
     public static class ObjectExtensions
     {
