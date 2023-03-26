@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProgressTracker.Domain.Entities;
 using ProgressTracker.Service;
+using ProgressTracker.Service.Interfaces;
 using ProgressTracker.Web.Models;
 
 namespace ProgressTracker.Web.Controllers
@@ -33,9 +34,9 @@ namespace ProgressTracker.Web.Controllers
         [HttpPost]
         public IActionResult Create(ItemCreateViewModel viewModel)
         {
-            _logger.LogInformation($"An item was created: {viewModel}", DateTime.UtcNow.ToString());
+            _logger.LogInformation("{DateTime} - An item was created: {viewModel}", viewModel, DateTime.UtcNow.ToString());
             Item item = _mapper.Map<Item>(viewModel);
-            _itemService.CreateItem(item);
+            _itemService.Create(item);
             return RedirectToAction("Index");
         }
     }

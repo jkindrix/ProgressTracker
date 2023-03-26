@@ -1,26 +1,30 @@
 ﻿using ProgressTracker.Data;
 using ProgressTracker.Domain.Entities;
+using ProgressTracker.Service.Interfaces;
 
 namespace ProgressTracker.Service
 {
-    public interface IItemService
+    public class ItemService : Service<Item>, IItemService
     {
-        public void CreateItem(Item item);
-    }
+        public ItemService(IUnitOfWork unitOfWork) : base(unitOfWork) { }
 
-    public class ItemService : IItemService
-    {
-        public readonly IUnitOfWork _unitOfWork;
+        //public void CreateItem(Item item)
+        //{
+        //    _unitOfWork.Items.Create(item);
+        //    _unitOfWork.Commit();
+        //}
 
-        public ItemService(IUnitOfWork unitOfWork)
-        {
-            _unitOfWork = unitOfWork;
-        }
+        //public void UpdateItem(Item item)
+        //{
+        //    _unitOfWork.Items.Update(item);
+        //    _unitOfWork.Commit();
+        //}
 
-        public void CreateItem(Item item)
-        {
-            _unitOfWork.Items.Create(item);
-            _unitOfWork.Commit();
-        }
+        //public void DeleteItem(Item item)
+        //{
+        //    _unitOfWork.Items.Delete(item);
+        //    _unitOfWork.Commit();
+        //}
+
     }
 }

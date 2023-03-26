@@ -3,6 +3,7 @@ using ProgressTracker.Data;
 using ProgressTracker.Data.Repositories;
 using ProgressTracker.Domain.Interfaces;
 using ProgressTracker.Service;
+using ProgressTracker.Service.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
