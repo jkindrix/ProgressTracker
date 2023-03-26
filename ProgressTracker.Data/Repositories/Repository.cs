@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ProgressTracker.Domain.Interfaces;
+using ProgressTracker.Common.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,31 +36,20 @@ namespace ProgressTracker.Data.Repositories
         public virtual void Create(T entity)
         {
             DateTime timestamp = DateTime.Now;
-            TrySetProperty(entity, "CreatedAt", timestamp);
-            TrySetProperty(entity, "UpdatedAt", timestamp);
+            entity.TrySetProperty("CreatedAt", timestamp);
+            entity.TrySetProperty("UpdatedAt", timestamp);
             _dbSet.Add(entity);
         }
 
         public virtual void Update(T entity)
         {
-            TrySetProperty(entity, "UpdatedAt", DateTime.Now);
+            entity.TrySetProperty("UpdatedAt", DateTime.Now);
             _dbSet.Update(entity);
         }
 
         public virtual void Delete(T entity)
         {
             _dbSet.Remove(entity);
-        }
-
-        private static bool TrySetProperty(object obj, string property, object value)
-        {
-            var prop = obj.GetType().GetProperty(property, BindingFlags.Public | BindingFlags.Instance);
-            if (prop != null && prop.CanWrite)
-            {
-                prop.SetValue(obj, value, null);
-                return true;
-            }
-            return false;
         }
     }
 }
