@@ -10,9 +10,9 @@ namespace ProgressTracker.Data.Repositories
         {
         }
 
-        public IQueryable<Item> GetTasksByStatus(string orderName)
+        public IQueryable<Item> GetItemsByStatus(ItemStatus status)
         {
-            throw new NotImplementedException();
+            return _dbSet.Where(item => item.Status == status);
         }
 
         public override void Create(Item entity)
