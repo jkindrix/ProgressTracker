@@ -4,8 +4,6 @@ using ProgressTracker.Domain.Entities;
 
 namespace ProgressTracker.Data
 {
-
-
     public class ApplicationDbContext : DbContext
     {
         public DbSet<Item> Items { get; set; }
