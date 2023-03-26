@@ -10,7 +10,7 @@ namespace ProgressTracker.Data.Repositories
         {
         }
 
-        public Task<IEnumerable<Item>> GetTasksByStatus(string orderName)
+        public IQueryable<Item> GetTasksByStatus(string orderName)
         {
             throw new NotImplementedException();
         }

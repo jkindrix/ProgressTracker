@@ -9,6 +9,6 @@ namespace ProgressTracker.Domain.Interfaces
 {
     public interface IItemRepository : IRepository<Item>
     {
-        Task<IEnumerable<Item>> GetTasksByStatus(string orderName);
+        IQueryable<Item> GetTasksByStatus(string orderName);
     }
 }
