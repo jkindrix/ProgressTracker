@@ -9,8 +9,6 @@ namespace ProgressTracker.Service.Interfaces
 {
     public interface IItemService : IService<Item>
     {
-        //public void CreateItem(Item item);
-        //public void UpdateItem(Item item);
-        //public void DeleteItem(Item item);
+        public void GetItemsByStatus(ItemStatus status);
     }
 }

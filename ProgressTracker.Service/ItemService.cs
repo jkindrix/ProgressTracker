@@ -9,5 +9,10 @@ namespace ProgressTracker.Service
         public ItemService(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
         }
+
+        public IQueryable<Item> GetItemsByStatus(ItemStatus status)
+        {
+            return _unitOfWork.Items.GetTasksByStatus(status);
+        }
     }
 }
