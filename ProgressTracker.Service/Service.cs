@@ -12,7 +12,7 @@ namespace ProgressTracker.Service
 {
     public abstract class Service<T> : IService<T> where T : class
     {
-        public readonly IUnitOfWork _unitOfWork;
+        protected readonly IUnitOfWork _unitOfWork;
 
         public Service(IUnitOfWork unitOfWork)
         {
