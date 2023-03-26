@@ -22,12 +22,12 @@ namespace ProgressTracker.Data.Repositories
             _dbSet = _dbContext.Set<T>();
         }
 
-        public IQueryable<T> FindAll()
+        public IQueryable<T> GetAll()
         {
             return _dbSet.AsNoTracking();
         }
 
-        public IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression)
+        public IQueryable<T> Get(Expression<Func<T, bool>> expression)
         {
             return _dbSet
                 .Where(expression).AsNoTracking();

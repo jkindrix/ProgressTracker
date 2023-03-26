@@ -9,6 +9,8 @@ namespace ProgressTracker.Service.Interfaces
 {
     public interface IItemService : IService<Item>
     {
-        public void GetItemsByStatus(ItemStatus status);
+        public Item? GetItemById(int id);
+        public IQueryable<Item> GetAllItems();
+        public IQueryable<Item> GetItemsByStatus(ItemStatus status);
     }
 }

@@ -10,11 +10,6 @@ namespace ProgressTracker.Data.Repositories
         {
         }
 
-        public IQueryable<Item> GetItemsByStatus(ItemStatus status)
-        {
-            return _dbSet.Where(item => item.Status == status);
-        }
-
         public override void Create(Item entity)
         {
             // Add some specialized functionality here

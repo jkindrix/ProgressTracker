@@ -23,6 +23,7 @@ namespace ProgressTracker.Web.Controllers
 
         public IActionResult Index()
         {
+            _itemService.Get(
             return View();
         }
 

@@ -10,9 +10,18 @@ namespace ProgressTracker.Service
         {
         }
 
+        public Item? GetItemById(int id)
+        {
+            return _unitOfWork.Items.Get(x => x.Id == id).FirstOrDefault();
+        }
+        public IQueryable<Item> GetAllItems()
+        {
+            return _unitOfWork.Items.GetAll();
+        }
+
         public IQueryable<Item> GetItemsByStatus(ItemStatus status)
         {
-            return _unitOfWork.Items.GetTasksByStatus(status);
+            return _unitOfWork.Items.Get(x => x.Status ==status);
         }
     }
 }

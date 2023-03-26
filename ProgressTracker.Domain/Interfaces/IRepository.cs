@@ -10,8 +10,8 @@ namespace ProgressTracker.Domain.Interfaces
 {
     public interface IRepository<T> where T : class
     {
-        IQueryable<T> FindAll();
-        IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression);
+        IQueryable<T> GetAll();
+        IQueryable<T> Get(Expression<Func<T, bool>> expression);
 
         void Create(T entity);
 
