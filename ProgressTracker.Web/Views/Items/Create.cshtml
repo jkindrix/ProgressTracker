@@ -1,0 +1,17 @@
+﻿@model ItemCreateViewModel
+
+<p>Add a new Item</p>
+
+<form asp-action="Create" asp-controller="Items" method="post">
+    <div class="form-group">
+        <label asp-for="Name" class="form-label">Name</label>
+        <input asp-for="Name" class="form-control"/>
+        <label asp-for="Description" class="form-label">Description</label>
+        <input asp-for="Description" class="form-control" />
+        <label asp-for="Url" class="form-label">Url</label>
+        <input asp-for="Url" class="form-control" />
+        <label asp-for="GoalMarker" class="form-label">GoalMarker</label>
+        <input asp-for="GoalMarker" class="form-control"/>
+    </div>
+    <button>Create</button>
+</form>

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProgressTracker.Domain
+namespace ProgressTracker.Domain.Entities
 {
-    public enum TaskStatus
+    public enum ItemStatus
     {
         New,
         Started,

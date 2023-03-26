@@ -1,14 +1,18 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using ProgressTracker.Domain;
+using ProgressTracker.Domain.Entities;
 
 namespace ProgressTracker.Data
 {
+
+
     public class ApplicationDbContext : DbContext
     {
-        public DbSet<Domain.Task> Tasks { get; set; }
+        public DbSet<Item> Items { get; set; }
 
-        public ApplicationDbContext(DbContextOptions options) : base(options) { }
-
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        : base(options)
+        {
+        }
     }
 }
