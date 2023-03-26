@@ -34,7 +34,9 @@ namespace ProgressTracker.Data.Repositories
 
         public void Create(T entity)
         {
-            TrySetProperty(entity, "CreatedAt", DateTime.Now);
+            DateTime timestamp = DateTime.Now;
+            TrySetProperty(entity, "CreatedAt", timestamp);
+            TrySetProperty(entity, "UpdatedAt", timestamp);
             _dbSet.Add(entity);
         }
 
