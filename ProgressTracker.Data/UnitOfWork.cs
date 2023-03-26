@@ -9,7 +9,7 @@ using ProgressTracker.Domain.Interfaces;
 
 namespace ProgressTracker.Data
 {
-    public class UnitOfWork : IUnitOfWork
+    public class UnitOfWork : IUnitOfWork, IDisposable
     {
         private readonly ApplicationDbContext _context;
         private IItemRepository _items;
