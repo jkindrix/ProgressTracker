@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ProgressTracker.Common\ProgressTracker.Common.csproj" />
+  </ItemGroup>
+
 </Project>
