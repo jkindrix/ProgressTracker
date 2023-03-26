@@ -32,7 +32,7 @@ namespace ProgressTracker.Data.Repositories
                 .Where(expression).AsNoTracking();
         }
 
-        public void Create(T entity)
+        public virtual void Create(T entity)
         {
             DateTime timestamp = DateTime.Now;
             TrySetProperty(entity, "CreatedAt", timestamp);
@@ -40,13 +40,13 @@ namespace ProgressTracker.Data.Repositories
             _dbSet.Add(entity);
         }
 
-        public void Update(T entity)
+        public virtual void Update(T entity)
         {
             TrySetProperty(entity, "UpdatedAt", DateTime.Now);
             _dbSet.Update(entity);
         }
 
-        public void Delete(T entity)
+        public virtual void Delete(T entity)
         {
             _dbSet.Remove(entity);
         }

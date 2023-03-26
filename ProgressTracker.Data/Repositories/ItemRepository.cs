@@ -14,5 +14,11 @@ namespace ProgressTracker.Data.Repositories
         {
             throw new NotImplementedException();
         }
+
+        public override void Create(Item entity)
+        {
+            // Add some specialized functionality here
+            base.Create(entity);
+        }
     }
 }
