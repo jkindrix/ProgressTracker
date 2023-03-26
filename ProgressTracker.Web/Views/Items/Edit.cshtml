@@ -1,0 +1,20 @@
+﻿@model ItemViewModel
+
+<h2>Edit an Item</h2>
+
+<form asp-action="Edit" asp-controller="Items" method="post">
+    <div class="form-group">
+        <input type="hidden" asp-for="Id" />
+        <label asp-for="Name" class="form-label">Name</label>
+        <input asp-for="Name" class="form-control" />
+        <label asp-for="Description" class="form-label">Description</label>
+        <input asp-for="Description" class="form-control" />
+        <label asp-for="Url" class="form-label">Url</label>
+        <input asp-for="Url" class="form-control" />
+        <label asp-for="ProgressMarker" class="form-label">Progress Marker</label>
+        <input asp-for="ProgressMarker" class="form-control" />
+        <label asp-for="GoalMarker" class="form-label">Goal Marker</label>
+        <input asp-for="GoalMarker" class="form-control" />
+    </div>
+    <button class="btn btn-primary">Save Changes</button>
+</form>

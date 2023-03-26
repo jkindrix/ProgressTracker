@@ -1,4 +1,4 @@
-﻿@model ItemCreateViewModel
+﻿@model ItemViewModel
 
 <p>Add a new Item</p>
 
@@ -10,8 +10,8 @@
         <input asp-for="Description" class="form-control" />
         <label asp-for="Url" class="form-label">Url</label>
         <input asp-for="Url" class="form-control" />
-        <label asp-for="GoalMarker" class="form-label">GoalMarker</label>
+        <label asp-for="GoalMarker" class="form-label">Goal Marker</label>
         <input asp-for="GoalMarker" class="form-control"/>
     </div>
-    <button>Create</button>
+    <button class="btn btn-primary">Create</button>
 </form>

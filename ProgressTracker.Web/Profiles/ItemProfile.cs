@@ -8,7 +8,8 @@ namespace ProgressTracker.Web.Profiles
     {
         public ItemProfile()
         {
-            CreateMap<ItemCreateViewModel, Item>();
+            CreateMap<ItemViewModel, Item>();
+            CreateMap<Item, ItemViewModel>();
         }
     }
 }

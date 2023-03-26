@@ -24,13 +24,13 @@ namespace ProgressTracker.Data.Repositories
 
         public IQueryable<T> GetAll()
         {
-            return _dbSet.AsNoTracking();
+            return _dbSet;
         }
 
         public IQueryable<T> Get(Expression<Func<T, bool>> expression)
         {
             return _dbSet
-                .Where(expression).AsNoTracking();
+                .Where(expression);
         }
 
         public virtual void Create(T entity)
