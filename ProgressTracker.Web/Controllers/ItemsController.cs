@@ -13,24 +13,33 @@ namespace ProgressTracker.Web.Controllers
         private readonly ILogger<ItemsController> _logger;
         private readonly IMapper _mapper;
         private readonly IItemService _itemService;
+        private readonly IMetricService _metricService;
 
-        public ItemsController(ILogger<ItemsController> logger, IMapper mapper, IItemService itemService)
+        public ItemsController(ILogger<ItemsController> logger, IMapper mapper, IItemService itemService, IMetricService metricService)
         {
             _logger = logger;
             _mapper = mapper;
             _itemService = itemService;
+            _metricService = metricService;
         }
 
         public IActionResult Index()
         {
             List<Item> items = _itemService.GetAllItems();
             List<ItemViewModel> viewModel = _mapper.Map<List<Item>, List<ItemViewModel>>(items);
+            List<Metric> metrics = _metricService.GetAllMetrics();
+            viewModel.ForEach(item => item.MetricName = metrics.Where(metric => metric.Id == item.MetricId).First().Name);
+
             return View(viewModel);
         }
 
         public IActionResult Create()
         {
-            return View();
+            ItemViewModel viewModel = new()
+            {
+                Metrics = _metricService.GetAllMetrics()
+            };
+            return View(viewModel);
         }
 
         [HttpPost]
@@ -46,7 +55,7 @@ namespace ProgressTracker.Web.Controllers
         {
             Item? item = _itemService.GetItemById(id);
             ItemViewModel viewModel = _mapper.Map<Item, ItemViewModel>(item);
-
+            viewModel.Metrics = _metricService.GetAllMetrics();
             return View(viewModel);
         }
 
@@ -72,7 +81,5 @@ namespace ProgressTracker.Web.Controllers
             _itemService.Delete(item);
             return RedirectToAction("Index");
         }
-
-
     }
 }

@@ -11,5 +11,8 @@ namespace ProgressTracker.Web.Models
         public int ProgressMarker { get; set; }
         public int GoalMarker { get; set; }
         public ItemStatus Status { get; set; }
+        public int MetricId { get; set; }
+        public List<Metric>? Metrics { get; set; }
+        public string MetricName { get; set; }
     }
 }

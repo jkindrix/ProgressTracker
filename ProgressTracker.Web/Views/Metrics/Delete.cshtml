@@ -1,0 +1,12 @@
+﻿@model MetricViewModel
+
+<form asp-action="Delete" asp-controller="Metrics" method="post">
+    <div class="form-group">
+        <input type="hidden" asp-for="Id" />
+        <label asp-for="Name" class="form-label">Name</label>
+        <input asp-for="Name" class="form-control" disabled />
+        <label asp-for="Description" class="form-label">Description</label>
+        <input asp-for="Description" class="form-control" disabled />
+    </div>
+    <button class="btn btn-danger">Delete</button>
+</form>

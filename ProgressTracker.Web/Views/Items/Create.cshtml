@@ -1,4 +1,5 @@
-﻿@model ItemViewModel
+﻿@using ProgressTracker.Domain.Entities;
+@model ItemViewModel
 
 <p>Add a new Item</p>
 
@@ -10,8 +11,15 @@
         <input asp-for="Description" class="form-control" />
         <label asp-for="Url" class="form-label">Url</label>
         <input asp-for="Url" class="form-control" />
+        <label asp-for="ProgressMarker" class="form-label">Progress Marker</label>
+        <input asp-for="ProgressMarker" class="form-control" />
         <label asp-for="GoalMarker" class="form-label">Goal Marker</label>
         <input asp-for="GoalMarker" class="form-control"/>
+        <label asp-for="MetricId" class="form-label">Metric</label>
+        <select asp-for="MetricId"
+                asp-items="@(new SelectList(@Model.Metrics, nameof(Metric.Id), nameof(Metric.Name)))">
+            <option>Please select one</option>
+        </select>
     </div>
     <button class="btn btn-primary">Create</button>
 </form>

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MetricViewModel>
+
+@section Styles {
+    <style>
+        .td-break {
+            word-break: break-all;
+        }
+
+        .td-no-wrap {
+            white-space: nowrap;
+        }
+    </style>
+}
+
+<h1>Items</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row" class="">@item.Name</th>
+                <td class="">@item.Description</td>
+                <td class=""><a asp-action="Edit" asp-controller="Metrics" asp-route-id="@item.Id">Edit</a></td>
+                <td class="td-no-break"><a asp-action="Delete" asp-controller="Metrics" asp-route-id="@item.Id">Delete Metric</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create" asp-controller="Metrics">Create New Metric</a>
+

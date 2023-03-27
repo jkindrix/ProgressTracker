@@ -13,6 +13,7 @@ namespace ProgressTracker.Data
     {
         private readonly ApplicationDbContext _context;
         private IItemRepository _items;
+        private IMetricRepository _metrics;
 
         public IItemRepository Items
         {
@@ -22,10 +23,19 @@ namespace ProgressTracker.Data
             }
         }
 
-        public UnitOfWork(ApplicationDbContext dbContext, IItemRepository itemRepository)
+        public IMetricRepository Metrics    
+        {
+            get
+            {
+                return _metrics ??= new MetricRepository(_context);
+            }
+        }
+
+        public UnitOfWork(ApplicationDbContext dbContext, IItemRepository itemRepository, IMetricRepository metricRepository)
         {
             _context = dbContext;
             _items = itemRepository;
+            _metrics = metricRepository;
         }
 
         public void Commit()

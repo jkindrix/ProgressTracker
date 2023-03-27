@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProgressTracker.Api", "Prog
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProgressTracker.Service", "ProgressTracker.Service\ProgressTracker.Service.csproj", "{4D93A0C4-C648-4D9B-A00A-730A9CAEADFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgressTracker.Common", "ProgressTracker.Common\ProgressTracker.Common.csproj", "{593BACDE-0BC7-4BF8-BE31-FB6D150190FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProgressTracker.Common", "ProgressTracker.Common\ProgressTracker.Common.csproj", "{593BACDE-0BC7-4BF8-BE31-FB6D150190FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

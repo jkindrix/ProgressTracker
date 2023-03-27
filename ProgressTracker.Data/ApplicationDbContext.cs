@@ -7,6 +7,7 @@ namespace ProgressTracker.Data
     public class ApplicationDbContext : DbContext
     {
         public DbSet<Item> Items { get; set; }
+        public DbSet<Metric> Metrics { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)

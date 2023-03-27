@@ -10,6 +10,7 @@ namespace ProgressTracker.Data
     public interface IUnitOfWork
     {
         public IItemRepository Items { get; }
+        public IMetricRepository Metrics { get; }
 
         void Commit();
     }

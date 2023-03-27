@@ -13,6 +13,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IItemRepository, ItemRepository>();
 builder.Services.AddScoped<IItemService, ItemService>();
+builder.Services.AddScoped<IMetricRepository, MetricRepository>();
+builder.Services.AddScoped<IMetricService, MetricService>();
+
 
 builder.Services.AddControllersWithViews();
 
