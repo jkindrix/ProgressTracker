@@ -19,21 +19,21 @@ namespace ProgressTracker.Service
             _unitOfWork = unitOfWork;
         }
 
-        public void Create(T entity)
+        public virtual void Create(T entity)
         {
             string entityTypeName = typeof(T).Name + "s";
             _unitOfWork.TryGetProperty(entityTypeName)?.TryInvokeMethod("Create", entity);
             _unitOfWork.Commit();
         }
 
-        public void Update(T entity)
+        public virtual void Update(T entity)
         {
             string entityTypeName = typeof(T).Name + "s";
             _unitOfWork.TryGetProperty(entityTypeName)?.TryInvokeMethod("Update", entity);
             _unitOfWork.Commit();
         }
 
-        public void Delete(T entity)
+        public virtual void Delete(T entity)
         {
             string entityTypeName = typeof(T).Name + "s";
             _unitOfWork.TryGetProperty(entityTypeName)?.TryInvokeMethod("Delete", entity);
