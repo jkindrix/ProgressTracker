@@ -11,19 +11,11 @@ namespace ProgressTracker.Service
         {
         }
 
-        public Item? GetItemById(int id)
-        {
-            return _unitOfWork.Items.Get(x => x.Id == id).FirstOrDefault();
-        }
-        public List<Item> GetAllItems()
-        {
-            return _unitOfWork.Items.GetAll().ToList();
-        }
-
         public IQueryable<Item> GetItemsByStatus(ItemStatus status)
         {
-            return _unitOfWork.Items.Get(x => x.Status ==status);
+            return _unitOfWork.Items.Get(x => x.Status == status);
         }
+
         public override void Update(Item entity)
         {
             entity.Status = GetStatus(entity);

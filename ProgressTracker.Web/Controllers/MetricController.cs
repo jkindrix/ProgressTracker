@@ -23,7 +23,7 @@ namespace ProgressTracker.Web.Controllers
 
         public IActionResult Index()
         {
-            List<Metric> metrics = _metricService.GetAllMetrics();
+            List<Metric> metrics = _metricService.GetAll();
             List<MetricViewModel> viewModel = _mapper.Map<List<Metric>, List<MetricViewModel>>(metrics);
             return View(viewModel);
         }
@@ -44,7 +44,7 @@ namespace ProgressTracker.Web.Controllers
 
         public IActionResult Edit(int id)
         {
-            Metric? Metric = _metricService.GetMetricById(id);
+            Metric? Metric = _metricService.GetOneBy<int>("Id", id);
             MetricViewModel viewModel = _mapper.Map<Metric, MetricViewModel>(Metric);
 
             return View(viewModel);
@@ -60,7 +60,7 @@ namespace ProgressTracker.Web.Controllers
 
         public IActionResult Delete(int id)
         {
-            Metric? metric = _metricService.GetMetricById(id);
+            Metric? metric = _metricService.GetOneBy<int>("Id", id);
             MetricViewModel viewModel = _mapper.Map<Metric, MetricViewModel>(metric);
             return View(viewModel);
         }

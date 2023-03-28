@@ -25,9 +25,11 @@ namespace ProgressTracker.Web.Controllers
 
         public IActionResult Index()
         {
-            List<Item> items = _itemService.GetAllItems();
+            List<Item> items = _itemService.GetAll();
             List<ItemViewModel> viewModel = _mapper.Map<List<Item>, List<ItemViewModel>>(items);
-            List<Metric> metrics = _metricService.GetAllMetrics();
+            List<Metric> metrics = _metricService.GetAll();
+
+            // Load the MetricName property for each ViewModel in the List
             viewModel.ForEach(item => item.MetricName = metrics.Where(metric => metric.Id == item.MetricId).First().Name);
 
             return View(viewModel);
@@ -37,7 +39,7 @@ namespace ProgressTracker.Web.Controllers
         {
             ItemViewModel viewModel = new()
             {
-                Metrics = _metricService.GetAllMetrics()
+                Metrics = _metricService.GetAll()
             };
             return View(viewModel);
         }
@@ -53,9 +55,9 @@ namespace ProgressTracker.Web.Controllers
 
         public IActionResult Edit(int id)
         {
-            Item? item = _itemService.GetItemById(id);
+            Item? item = _itemService.GetOneBy<int>("Id", id);
             ItemViewModel viewModel = _mapper.Map<Item, ItemViewModel>(item);
-            viewModel.Metrics = _metricService.GetAllMetrics();
+            viewModel.Metrics = _metricService.GetAll();
             return View(viewModel);
         }
 
@@ -69,7 +71,7 @@ namespace ProgressTracker.Web.Controllers
 
         public IActionResult Delete(int id)
         {
-            Item? item = _itemService.GetItemById(id);
+            Item? item = _itemService.GetOneBy<int>("Id", id);
             ItemViewModel viewModel = _mapper.Map<Item, ItemViewModel>(item);
             return View(viewModel);
         }

@@ -1,4 +1,5 @@
-﻿using System.Net.NetworkInformation;
+﻿using System.Linq.Expressions;
+using System.Net.NetworkInformation;
 using System.Reflection;
 
 namespace ProgressTracker.Common.Extensions
@@ -39,6 +40,11 @@ namespace ProgressTracker.Common.Extensions
         public static void TryInvokeMethod(this object obj, string method, params object[] args)
         {
             obj.GetType().GetMethod(method)?.Invoke(obj, args);
+        }
+
+        public static T? TryInvokeMethod<T>(this object obj, string method, params object[] args)
+        {
+            return (T?)obj.GetType().GetMethod(method)?.Invoke(obj, args);
         }
     }
 }

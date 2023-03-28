@@ -9,7 +9,5 @@ namespace ProgressTracker.Service.Interfaces
 {
     public interface IMetricService : IService<Metric>
     {
-        public Metric? GetMetricById(int id);
-        public List<Metric> GetAllMetrics();
     }
 }
